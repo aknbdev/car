@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  datasource:
+    username: car_user
+    password: rootan
+    url: jdbc:postgresql://localhost:5432/car_db
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
