@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head th:fragment="headerfiles">
+    <title>Listing</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-color: #565c8c">
+<div class="container" th:fragment="nav">
+    <h2>Cars List</h2>
+
+    <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/logout}">
+        <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+    </form>
+
+    <hr>
+    <a th:href="|${siteUrl}/new-car|" class="btn btn-primary mb-2">New Car</a>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Version</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car: ${cars}">
+            <td th:text="${car.id}">
+            <td th:text="${car.model}">
+            <td th:text="${car.color}">
+            <td th:text="${car.version}">
+            <td style="width: 28%">
+            <a th:href="@{/api/car/update-form(id=${car.id})}" class="btn btn-info">Update</a>
+            <form th:method="delete" th:action="@{${siteUrl}/delete(id=${car.id})}" class="d-inline">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

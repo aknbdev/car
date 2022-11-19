@@ -1,8 +1,10 @@
-package uz.sitelabs.car.car;
+package uz.sitelabs.car.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import uz.sitelabs.car.model.EntCar;
+
 import java.util.List;
 
 @Repository

@@ -1,4 +1,4 @@
-package uz.sitelabs.car.car;
+package uz.sitelabs.car.dto;
 
 import lombok.Getter;
 import lombok.Setter;

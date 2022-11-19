@@ -1,0 +1,84 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .usInput, .pwInput:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body style="background-color: #565c8c;
+            font-family: tahoma, Arial, serif;
+            padding: 0 15px;">
+<div style="margin: 120px auto;
+            max-width: 400px;
+            background-color: #ffffff66;
+            border: 0px solid #00000066;
+            height: 350px;
+            border-radius: 26px;
+            padding: 25px 35px;">
+    <h1 style="text-align: center;
+            width: auto;">Login</h1>
+    <form name="f" th:action="@{/sign-in}" method="post">
+        <fieldset style="border: none">
+
+            <div th:if="${param.error}" class="alert alert-danger">
+                Invalid username or password.
+            </div>
+
+            <div class="login" style="display: flex;
+            flex-direction: column;
+            width: auto;
+            padding: 0 10px;
+            margin-top: 35px;">
+                <label style="font-size: 14px;
+            padding-left: 2px;
+            margin-bottom: 2px; "  for="username">Email</label>
+                <input class="usInput" id="username" name="username" placeholder="Type your email" required="required" style="margin-bottom: 17px;
+            font-size: 12px;
+            line-height: 25px;
+            padding: 5px 12px;
+            border: 1px solid #8080805e;
+            border-radius: 15px;
+            background-color: #ffffff00;"
+                       type="text" autofocus="autofocus">
+                <label style="font-size: 14px;
+            padding-left: 2px;
+            margin-bottom: 2px;" for="password">Password</label>
+                <input class="pwInput" id="password" name="password" placeholder="Type your password" required="required" style="margin-bottom: 17px;
+            font-size: 12px;
+            line-height: 25px;
+            padding: 5px 12px;
+            border: 1px solid #8080805e;
+            border-radius: 15px;
+            background-color: #ffffff00;"
+                       type="password">
+                <p style="align-self: flex-end;
+            font-size: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: gray;
+            display: none;">Forget Password?</p>
+            </div>
+            <button style="margin: 35px auto;
+            display: block;
+            width: 200px;
+            line-height: 35px;
+            border-radius: 50px;
+            border: 0 solid white;
+            background-image: linear-gradient(to right, rgba(3, 169, 244, 0.82), rgba(233, 30, 99, 0.86));
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;" type="submit">LOGIN</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

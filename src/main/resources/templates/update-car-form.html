@@ -1,4 +1,3 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Update Car</title>
@@ -11,7 +10,7 @@
 <div class="container">
     <h2>Update Car</h2>
     <hr>
-    <form th:action="@{/api/car/update}" th:object="${car}" th:method="put">
+    <form th:action="|${siteUrl}/update|" th:object="${car}" th:method="put">
         <input type="hidden" th:field="*{id}">
         <input type="text" th:field="*{model}" placeholder="Enter Model" class="form-control col-4 mb-4">
         <input type="text" th:field="*{color}" placeholder="Enter Color" class="form-control col-4 mb-4">
@@ -19,7 +18,7 @@
         <button class="btn btn-primary" type="submit">Save</button>
     </form>
     <hr>
-    <a th:href="@{/api/car/get-all}">Back to list.</a>
+    <a th:href="|${siteUrl}/all|">Back to list.</a>
 </div>
 </body>
 </html>

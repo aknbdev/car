@@ -1,0 +1,72 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head th:fragment="headerfiles">
+    <title>Listing</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/style.css}">
+</head>
+<body>
+<div class="limiter">
+
+    <div class="container-table100">
+        <h2 style="color: aliceblue">Cars List</h2>
+
+        <div class="wrap-table100">
+            <div class="table100">
+                <a style="margin-bottom: 15px" th:href="|${siteUrl}/new-car|" class="btn upd-btn">New Car</a>
+                <table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1">id</th>
+                        <th class="column2">Model</th>
+                        <th class="column3">Color</th>
+                        <th class="column4">Version</th>
+                        <th class="column5">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="car: ${cars}">
+                        <td class="column1" th:text="${car.id}">
+                        <td class="column2" th:text="${car.model}">
+                        <td class="column3" th:text="${car.color}">
+                        <td class="column4" th:text="${car.version}">
+                        <td class="column5">
+                            <!--                            <form th:method="get" th:action="@{/api/car/update-form(id=${car.id})}" class="d-inline">-->
+                            <!--                                <button class="btn upd-btn" type="submit">Update</button>-->
+                            <!--                            </form>-->
+
+                            <a th:href="@{/api/car/update-form(id=${car.id})}" class="btn upd-btn">Update</a>
+                            <form th:method="delete" th:action="@{/api/car/delete(id=${car.id})}" class="d-inline">
+                                <button class="btn del-btn" type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="column1">2017-09-28 05:57</td>
+                        <td class="column2">200397</td>
+                        <td class="column3">Samsung S8 Black</td>
+                        <td class="column4">$756.00</td>
+                        <td class="column5">1</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">2017-09-28 05:57</td>
+                        <td class="column2">200397</td>
+                        <td class="column3">Samsung S8 Black</td>
+                        <td class="column4">$756.00</td>
+                        <td class="column5">1</td>
+                    </tr>
+                    <tr>
+                        <td class="column1">2017-09-28 05:57</td>
+                        <td class="column2">200397</td>
+                        <td class="column3">Samsung S8 Black</td>
+                        <td class="column4">$756.00</td>
+                        <td class="column5">1</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
